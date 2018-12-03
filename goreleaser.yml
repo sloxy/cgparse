@@ -1,0 +1,13 @@
+# .goreleaser.yml
+# Build customization
+builds:
+  - 
+  main: cgparse
+  binary: cgparse
+  goos:
+  - windows
+  - darwin
+  - linux
+  goarch:
+  - amd64
+  

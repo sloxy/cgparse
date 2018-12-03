@@ -9,13 +9,11 @@ before_install:
 os:
   - linux
   - osx
+  - windows
 
-gobuild_args: -o cgparse.$GOOS.$GOARCH
-  
-deploy:
-  api_key: ${GITHUB_OAUTH_KEY}
-  provider: releases
-  skip_cleanup: true
-  draft: true
-  file:
-  - cgparse.$GOOS.$GOARCH
+snapshot:
+  name_template: SNAPSHOT-{{.Commit}}
+
+after_success:
+  condition: $TRAVIS_OS_NAME = linux
+  - test -n "$TRAVIS_TAG" && curl -sL https://git.io/goreleaser | bash
