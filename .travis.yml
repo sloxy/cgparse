@@ -10,9 +10,12 @@ os:
   - linux
   - osx
 
-
+gobuild_args: -o cgparse.$GOOS.$GOARCH
+  
 deploy:
   api_key: ${GITHUB_OAUTH_KEY}
   provider: releases
   skip_cleanup: true
   draft: true
+  file:
+  - cgparse.$GOOS.$GOARCH
