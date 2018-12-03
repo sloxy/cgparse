@@ -10,9 +10,9 @@ os:
   - linux
   - osx
 
-- stage: GitHub Release
-  script: echo "Deploying to GitHub releases ..."
-  deploy:
-    provider: releases
-    skip_cleanup: true
-    draft: true
+
+deploy:
+  api_key: ${GITHUB_OAUTH_KEY}
+  provider: releases
+  skip_cleanup: true
+  draft: true
